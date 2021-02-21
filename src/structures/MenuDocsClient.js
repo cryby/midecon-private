@@ -35,11 +35,13 @@ module.exports = class MenuDocsClient extends Client {
 		this.defaultPerms = new Permissions(options.defaultPerms).freeze();
 	}
 
+	// eslint-disable-next-line no-unused-vars
 	async start(token = this.token) {
 		this.utils.loadCommands();
 		this.utils.loadEvents();
 
-		await super.login(token);
+		// eslint-disable-next-line no-process-env
+		await super.login(process.env.token);
 	}
 
 };
